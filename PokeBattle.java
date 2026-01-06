@@ -5,14 +5,14 @@ public class PokeBattle {
     static double damage;
 
     public static void main(String[] args) {
-        Monster haunter = new Monster("Haunter", Types.GHOST);
-        haunter.setMoveUsed(new Move(100, 30, Types.GHOST));
-        Monster lillipup = new Monster("Lillipup", Types.GHOST);
+        Monster haunter = new Monster("Haunter", TypesImplementation.GHOST);
+        haunter.setMoveUsed(new Move(100, 30, TypesImplementation.FIGHTING));
+        Monster lillipup = new Monster("Lillipup", TypesImplementation.NORMAL);
         StartBattle(haunter,lillipup);
     }
 
     private static void StartBattle(Monster attackingMonster, Monster defendiMonster) {
-        PokeBattle.damage = attackingMonster.calculateDamage();
+        PokeBattle.damage = attackingMonster.calculateDamage(defendiMonster);
         System.out.println("Start Battle");
         System.out.println("\n" + attackingMonster.id + " used an attack that is " 
         + attackingMonster.getMovesType() + " on " + defendiMonster.id + "\n");
